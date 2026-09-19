@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPL Mega Auction</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">🏏 <span>IPL</span> AUCTION</div>
+  <div class="season">MEGA AUCTION 2026</div>
+  <button class="reset-btn" onclick="resetAuction()">↻ RESET</button>
+</header>
+
+<section id="teamSelection" class="team-selection">
+  <div class="selection-title">
+    <p>WELCOME TO</p><h1>IPL MEGA AUCTION</h1>
+    <span>Select your franchise to begin</span>
+  </div>
+  <div id="teamGrid" class="team-grid"></div>
+</section>
+
+<main id="auctionPage" class="auction-page hidden">
+<section class="main-area">
+  <div class="auction-header">
+    <div><small>CURRENT PLAYER</small><h2 id="playerNumber">PLAYER #1</h2></div>
+    <div class="timer-box"><span>TIME</span><strong id="timer">20</strong></div>
+  </div>
+
+  <div class="player-card">
+    <div class="player-image">
+      <div class="player-avatar" id="playerAvatar">🏏</div>
+      <div class="sold-stamp hidden" id="soldStamp">SOLD</div>
+    </div>
+    <div class="player-info">
+      <div class="player-role" id="playerRole">BATTER</div>
+      <h1 id="playerName">Player Name</h1>
+      <p id="playerCountry">🇮🇳 INDIA</p>
+      <div class="player-details">
+        <div><span>BASE PRICE</span><strong id="basePrice">₹2.00 Cr</strong></div>
+        <div><span>HIGHEST BID</span><strong id="highestBid">₹2.00 Cr</strong></div>
+        <div><span>HIGHEST BIDDER</span><strong id="highestBidder">NO BID</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bid-panel">
+    <div class="bid-title"><span>PLACE YOUR BID</span><strong id="selectedTeamName">SELECT TEAM</strong></div>
+    <div class="bid-buttons">
+      <button onclick="placeBid(0.25)">+ ₹0.25 Cr</button>
+      <button onclick="placeBid(0.50)">+ ₹0.50 Cr</button>
+      <button onclick="placeBid(1)">+ ₹1 Cr</button>
+      <button onclick="placeBid(2)">+ ₹2 Cr</button>
+      <button onclick="placeBid(5)">+ ₹5 Cr</button>
+    </div>
+    <div class="auction-actions">
+      <button id="sellBtn" class="sell-btn" onclick="sellPlayer()">🔨 SELL PLAYER</button>
+      <button id="unsoldBtn" class="unsold-btn" onclick="unsoldPlayer()">UNSOLD</button>
+    </div>
+  </div>
+
+  <div class="auction-log">
+    <div class="section-heading">AUCTION ACTIVITY</div>
+    <div id="auctionLog"><p class="empty-log">Auction is ready...</p></div>
+  </div>
+</section>
+
+<aside class="sidebar">
+  <div class="team-card">
+    <div class="team-card-header"><span>YOUR FRANCHISE</span><div id="teamLogo">🏏</div></div>
+    <h2 id="myTeamName">TEAM</h2>
+    <div class="purse-info"><div><span>PURSE REMAINING</span><strong id="myPurse">₹120.00 Cr</strong></div></div>
+    <div class="team-stats">
+      <div><strong id="playerCount">0</strong><span>PLAYERS</span></div>
+      <div><strong id="totalSpent">₹0 Cr</strong><span>SPENT</span></div>
+    </div>
+  </div>
+
+  <div class="squad-panel">
+    <div class="section-heading">YOUR SQUAD</div>
+    <div id="squadList"><div class="empty-squad">No players purchased yet</div></div>
+  </div>
+
+  <div class="other-teams">
+    <div class="section-heading">AUCTION TEAMS</div>
+    <div id="otherTeamsList"></div>
+  </div>
+</aside>
+</main>
+
+<div id="resultOverlay" class="overlay hidden">
+  <div class="result-box">
+    <div id="resultIcon">🏆</div>
+    <h1 id="resultTitle">PLAYER SOLD</h1>
+    <p id="resultMessage">Player purchased successfully</p>
+    <button onclick="nextPlayer()">NEXT PLAYER →</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
